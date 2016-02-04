@@ -159,7 +159,15 @@ $response = wp_remote_post( $url, array (
     'body'    =>  $data
 ) );
 ```
-    
+
+For the following example, the authorization token we pass is the base64 encoded string
+equivalent to `admin:12345` -- you can encode your own username and password (or application
+password) on the command line like so: `echo -n "admin:12345" | base64`
+
+```bash
+~ $ curl --header "Authorization: Basic YWRtaW46MTIzNDU=" http://wp.dev/wp-json/endpoint/that/requires/auth
+```
+
 
 [http-basic]: https://tools.ietf.org/html/rfc2617
 [basic-auth-plugin]: https://github.com/WP-API/Basic-Auth
